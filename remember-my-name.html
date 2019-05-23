@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body onload="load()">
+
+<div id="content">
+  <form onsubmit="save(event)">
+  <input type="text" placeholder="what's your name?" >
+  </form>
+</div>
+
+
+
+<script>
+function save(e){
+  e.preventDefault();
+
+  let name = document.getElementById('content').firstElementChild.firstElementChild.value;
+  localStorage.setItem('name' , name);
+
+}
+
+function load(){
+  let name = localStorage.getItem('name');
+  document.body.innerHTML =  `<h1> hello ${name}</h1>`
+  if (name != null) {
+    document.getElementById('content').remove()
+  }
+}
+
+</script>
+</body>
+</html>
