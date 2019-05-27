@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="checkbox" id="box1">A</input> <br>
+  <input type="checkbox" id="box2">B</input> <br>
+  <input type="checkbox" id="box3">C</input> <br>
+<button type="button" onClick="save()">save</button>
+
+
+
+<script type="text/javascript">
+
+
+function save() {
+var checkbox = document.getElementById("box1");
+  localStorage.setItem("box1", checkbox.checked);
+var checkbox = document.getElementById("box2");
+  localStorage.setItem("box2", checkbox.checked);
+var checkbox = document.getElementById("box3");
+  localStorage.setItem("box3", checkbox.checked);
+}
+
+//for loading
+var checked1 = JSON.parse(localStorage.getItem("box1"));
+    document.getElementById("box1").checked = checked1;
+var checked2 = JSON.parse(localStorage.getItem("box2"));
+    document.getElementById("box2").checked = checked2;
+var checked3 = JSON.parse(localStorage.getItem("box3"));
+    document.getElementById("box3").checked = checked3;
+
+</script>
+</body>
+</html>

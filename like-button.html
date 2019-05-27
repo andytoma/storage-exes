@@ -9,27 +9,30 @@
 <body onload="load()">
 
 <button  onclick="like(); "> Like</button>
-<button> clear</button>              //  click sa se stearga like din memorie
+<button  onclick="remove(); "> clear</button>
+   <!-- click sa se stearga like din memorie -->
 
 
   <script type="text/javascript">
     function like(){
-      let n = +localStorage.getItem('n') || 0;
+      let n = +localStorage.getItem('n');
       n++;
       document.querySelector('button').innerHTML =  `Like ${n}`;
       localStorage.setItem('n', n)
     }
-
 function load(){
   let n = +localStorage.getItem('n') || 0;
   if (n != null) {
     document.querySelector('button').innerHTML =  `Like ${n}`;
   }
 }
-
+function remove(){
+  let n = +localStorage.getItem('n');
+  document.querySelector('button').innerHTML =  `Like ${n}`;
+  localStorage.removeItem('n')
+}
 // de memorat volumul in localStorage
 // de sinhronizat una cu alta
-
   </script>
 </body>
 </html>
